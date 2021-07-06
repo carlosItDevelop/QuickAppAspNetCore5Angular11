@@ -48,7 +48,7 @@ namespace QuickApp
             //Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"], b => b.MigrationsAssembly("QuickApp")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("QuickApp")));
 
             // add identity
             services.AddIdentity<ApplicationUser, ApplicationRole>()
